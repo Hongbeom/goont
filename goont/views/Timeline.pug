@@ -1,0 +1,170 @@
+doctype html
+//
+  Future Imperfect by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+html
+  head
+    title Future Imperfect by HTML5 UP
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //if lte IE 8
+      script(src='assets/js/ie/html5shiv.js')
+    link(rel='stylesheet', href='assets/css/main.css')
+    //if lte IE 9
+      link(rel='stylesheet', href='assets/css/ie9.css')
+    //if lte IE 8
+      link(rel='stylesheet', href='assets/css/ie8.css')
+  body
+    // Wrapper
+    #wrapper
+      // Header
+      header#header
+        h1
+          a(href='/') Go on Trip
+        nav.links
+          ul
+            li
+              a(href='/Introduction') Introduction
+            li
+              a(href='/Community') Community
+            li
+              a(href='/Information') information
+            li
+              a(href='/QandA') Q&A
+        nav.main
+          if nickName
+            ul
+              li
+                a Welcome 
+                =nickName
+              li
+                a.button.small.fit(href='/logout') Logout
+          else
+            ul
+              li
+                a.button.small.fit(href='/login') Log In
+              li
+                a.button.small.fit(href='/register') Register
+      // Main
+      #main
+        // Post
+        article.post
+          header
+            .title
+              h2
+                a(href='/Timeline') Timeline
+              p Goont provide community & tourist information
+            .meta
+             img(src='images/logo3.png' width='200px' height='160px')
+          each timeline in timelines
+            article.post
+              header
+                .title
+                  h2
+                    a(href='#')=timeline.timelinetitle
+                  p TITLE
+                .meta
+                  h3=timeline.timelinetimeat
+                  a.author(href='#')
+                    span.name=timeline.nickName
+                    img(src='images/uploads/'+timeline.userimg, alt='')
+              a.image.featured(href='#')
+                img(src='images/uploads/'+timeline.timelineimg, alt='')
+              p=timeline.timelinecontent
+              footer
+                ul.actions
+                  li
+                    a.button.big(href='#') Continue Reading
+                  if(nickName===timeline.nickName)
+                    li
+                      a.button.big(href='/Timelinedelete/'+timeline.id) DELETE
+                ul.stats
+                  li
+                    a(href='#') General
+                  li
+                    a.icon.fa-heart(href='/timelinelikey/'+timeline.id)=timeline.likey
+                  
+              each comment in comments
+                if(timeline.id===comment.timelineid)
+                  section
+                    ul.posts
+                      li
+                        article
+                          header
+                            h3
+                              =comment.nickName
+                              br
+                              br
+                              =comment.commentcontent
+                            if(nickName===comment.nickName)
+                              a.button.small(href='/Timelinecommentdelete/'+comment.id) X
+                            a.author(href='#')=comment.commenttimeat
+                          a.author.comment(href='#')
+                            img(src='images/uploads/'+comment.userimg, alt='')
+
+
+              form#search(action='/Timelinecomment/'+timeline.id method='post')
+                textarea(type='text', name='timelinecomment', placeholder='COMMENT')
+                br
+                input(type='submit', value='COMMENT')
+
+
+
+
+
+          
+        ul.actions.pagination
+          li
+            a.disabled.button.big.previous(href='') Previous Page
+          li
+            a.button.big.next(href='#') Next Page
+        ul.actions(style='text-align: right')
+          li
+            a.button.big(href='/Uploadtimeline') upload
+      
+
+      section#footer
+        section
+          a(href='/Community')
+            p(style='font-size: 2em') COMMUNITY
+          ul.posts
+            li
+              article
+                header
+                  h3
+                    a(href='/Timeline')  Timeline
+            li
+              article
+                header
+                  h3
+                    a(href='/Tips') tips
+        ul.icons
+          li
+            a.fa-twitter(href='#')
+              span.label Twitter
+          li
+            a.fa-facebook(href='#')
+              span.label Facebook
+          li
+            a.fa-instagram(href='#')
+              span.label Instagram
+          li
+            a.fa-rss(href='#')
+              span.label RSS
+          li
+            a.fa-envelope(href='#')
+              span.label Email
+        p.copyright
+          | © Untitled. Design: 
+          a(href='http://html5up.net') HTML5 UP
+          | . Images: 
+          a(href='http://unsplash.com') Unsplash
+          | .
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/skel.min.js')
+    script(src='assets/js/util.js')
+    //if lte IE 8
+      script(src='assets/js/ie/respond.min.js')
+    script(src='assets/js/main.js')

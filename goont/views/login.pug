@@ -1,0 +1,109 @@
+doctype html
+//
+  Future Imperfect by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+html
+  head
+    title Future Imperfect by HTML5 UP
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //if lte IE 8
+      script(src='assets/js/ie/html5shiv.js')
+    link(rel='stylesheet', href='assets/css/main.css')
+    //if lte IE 9
+      link(rel='stylesheet', href='assets/css/ie9.css')
+    //if lte IE 8
+      link(rel='stylesheet', href='assets/css/ie8.css')
+  body
+    // Wrapper
+    #wrapper
+      // Header
+      header#header
+        h1
+          a(href='/') Go on Trip
+        nav.links
+          ul
+            li
+              a(href='/Introduction') Introduction
+            li
+              a(href='/Community') Community
+            li
+              a(href='/Information') information
+            li
+              a(href='/QandA') Q&A
+        nav.main
+          ul
+            li
+              a.button.small.fit(href='/login') Log In
+            li
+              a.button.small.fit(href='/register') Register   
+ 
+      // Main
+      #main
+        // Post
+        article.post
+          header
+            .title
+              h2 Log in 
+          form#search(action='/login' method='post')
+            input(type='text', name='username', placeholder='ID')
+            br
+            input(type='password', name='password', placeholder='Password')
+            br
+            input.big(type='submit' value='login')
+
+            a.button.big.margin(href='/register') Register
+      // Sidebar
+      section#sidebar
+        // Intro
+        section#intro
+          a.logo(href='/')
+            img(src='images/logo.png', alt='')
+          header
+            h2 Go on Trip
+            p GOONT(Go on trip) provide community with tourist information 
+        // Mini Posts
+        // About
+        section.blurb
+          h2 About
+          p
+            | Mobile: 010.2537.1907 
+            br
+            | 									E-Mail: ghdjk2216@gmail.com 
+            br
+            | 								Post: Seoul, Mapo, Sang-su 86-12
+          ul.actions
+            li
+              a.button(href='#') Learn More
+        // Footer
+        section#footer
+          ul.icons
+            li
+              a.fa-twitter(href='#')
+                span.label Twitter
+            li
+              a.fa-facebook(href='#')
+                span.label Facebook
+            li
+              a.fa-instagram(href='#')
+                span.label Instagram
+            li
+              a.fa-rss(href='#')
+                span.label RSS
+            li
+              a.fa-envelope(href='#')
+                span.label Email
+          p.copyright
+            | © Untitled. Design: 
+            a(href='http://html5up.net') HTML5 UP
+            | . Images: 
+            a(href='http://unsplash.com') Unsplash
+            | .
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/skel.min.js')
+    script(src='assets/js/util.js')
+    //if lte IE 8
+      script(src='assets/js/ie/respond.min.js')
+    script(src='assets/js/main.js')
